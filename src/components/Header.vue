@@ -15,6 +15,11 @@
           <strong>About</strong>
         </a>
       </el-menu-item>
+      <el-menu-item index="git" :route="{ name: 'git' }">
+        <a href="/git">
+          <strong>Gitとは</strong>
+        </a>
+      </el-menu-item>
       <el-menu-item index="cheat-sheet" :route="{ name: 'cheat-sheet' }">
         <a href="/cheat-sheet">
           <strong>CheatSheet</strong>

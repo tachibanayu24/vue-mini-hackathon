@@ -2,248 +2,148 @@
 <!-- eslint-disable -->
 <body>
   <div id="doc" class="markdown-body container-fluid comment-enabled" style="position: relative;">
-    <h1 id="Gitで管理するVueアプリケーション開発ハッカソン">
-      <a
-        class="anchor hidden-xs"
-        href="#Gitで管理するVueアプリケーション開発ハッカソン"
-        title="Gitで管理するVueアプリケーション開発ハッカソン"
-      >
+    <p>※今回はブランチを変えて開発しないので、ブランチに関する説明は省いています。
+      <br>※他にもいろいろ省いてます。
+    </p>
+    <h1 id="3行要約">
+      <a class="anchor hidden-xs" href="#3行要約" title="3行要約">
         <span class="octicon octicon-link"></span>
-      </a>Gitで管理するVueアプリケーション開発ハッカソン
+      </a>3行要約
     </h1>
-    <h2 id="はじめに">
-      <a class="anchor hidden-xs" href="#はじめに" title="はじめに">
-        <span class="octicon octicon-link"></span>
-      </a>はじめに
-    </h2>
-    <p>Gitでコード管理し、VueでWeb開発を行うハッカソンのページです。
-      <br>ページヘッダの
-      <code>MKP APP</code>タブでSPA(シングルページアプリケーション)を開発します。
-      <br>
-      <code>CheatSheet</code>タブは、コマンドなどを忘れたときのために。
+    <p>Gitとは、</p>
+    <ul>
+      <li>分散型バージョン管理システム</li>
+      <li>チーム開発のデファクトスタンダード</li>
+      <li>リモートリポジトリのほかにローカルリポジトリがある</li>
+    </ul>
+    <p>です。
+      <br>順を追って詳細を見ていきます。
     </p>
-    <p>アンケートで希望の多かった</p>
-    <ul>
-      <li>Vue</li>
-      <li>JavaScript</li>
-      <li>Git</li>
-      <li>HTML</li>
-      <li>CSS</li>
-    </ul>
-    <p>あたりの理解度を深めることができます。</p>
-    <h2 id="ハッカソンの目標">
-      <a class="anchor hidden-xs" href="#ハッカソンの目標" title="ハッカソンの目標">
+    <h1 id="バージョン管理とは">
+      <a class="anchor hidden-xs" href="#バージョン管理とは" title="バージョン管理とは">
         <span class="octicon octicon-link"></span>
-      </a>ハッカソンの目標
-    </h2>
+      </a>バージョン管理とは
+    </h1>
     <ul>
+      <li>デグレしちゃった</li>
+      <li>あのころのコードに戻したい</li>
+      <li>他の人が書いたコードに上書きしちゃった</li>
+      <li>これ何用のコードだっけ？試験用？本番環境用？</li>
+    </ul>
+    <p>というときに、競合を防いだり、コードをロールバックしたり、用途によってコードの保管庫を切り分けたりできるのがバージョン管理で、ソフトウェア開発に必須のツールです。</p>
+    <h1 id="Subversionでいいじゃん">
+      <a class="anchor hidden-xs" href="#Subversionでいいじゃん" title="Subversionでいいじゃん">
+        <span class="octicon octicon-link"></span>
+      </a>Subversionでいいじゃん
+    </h1>
+    <p>と思うかもしれないです。
+      <br>Subversionは、集中型バージョン管理システムと呼ばれ、
+    </p>
+    <ul>
+      <li>サーバ上に「中央リポジトリ(コードの保管庫)」を作り、そこからソースコードを取得する。</li>
+      <li>ソースコードを編集後、「コミット」すると、内容が中央リポジトリに反映される。</li>
+      <li>ファイルをロックして、他人から編集されないようにもできる。</li>
+    </ul>
+    <p>という特徴があります。</p>
+    <p>しかし、集中型ならではのデメリットがあります。
+      <br>Subversionのリポジトリを保管しているサーバにアクセスできなければ、サーバにコミットしたりサーバから最新のコードを持ってくることができません。
+      <br>サーバがダウンしたらデータがすべて消えます。
+    </p>
+    <p>また、他人にロックされると作業がし辛いし、ロックしないと頻繁に競合が発生します。</p>
+    <h1 id="そこでGit">
+      <a class="anchor hidden-xs" href="#そこでGit" title="そこでGit">
+        <span class="octicon octicon-link"></span>
+      </a>そこでGit
+    </h1>
+    <p>Gitは、Linuxの父でもあるLinus Torvaldsによって開発された分散型バージョン管理システムです。(ちなみに、現在のGitの管理者は濱野純という日本人)</p>
+    <p>以下のような特徴があります。</p>
+    <ul>
+      <li>Subversionより動作速度が早い</li>
+      <li>すべての開発者のローカルにリポジトリ(ローカルリポジトリ)が作成される(だから分散型)</li>
+      <li>自分のローカルリポジトリにコミットしてから、みんなで使うリモートリポジトリにpush(後述)する。</li>
+      <li>ファイルのロックはしない</li>
+    </ul>
+    <h2 id="ステージングとは">
+      <a class="anchor hidden-xs" href="#ステージングとは" title="ステージングとは">
+        <span class="octicon octicon-link"></span>
+      </a>ステージングとは
+    </h2>
+    <p>Gitは、作業ディレクトリ(ローカルのコード)をいきなりコミットするのではなく、一旦ステージングという状態に持っていきます。
+      <br>以下のようなイメージです。
+    </p>
+    <p>
+      <img src="../assets/staging.png" alt>
+    </p>
+    <h2 id="addとcommitとpushとpull">
+      <a class="anchor hidden-xs" href="#addとcommitとpushとpull" title="addとcommitとpushとpull">
+        <span class="octicon octicon-link"></span>
+      </a>addとcommitとpushとpull
+    </h2>
+    <p>簡単に流れを説明します。</p>
+    <ol start="0">
       <li>
-        <p>必達目標</p>
-        <ul>
-          <li>何を作るのか決める</li>
-          <li>簡単な設計を実施する</li>
-          <li>完成させる</li>
-          <li>振り返りをする</li>
-        </ul>
+        <code>git pull</code>でリモートリポジトリからpullしてくる。
+      </li>
+      <li>working directoryで作業する。</li>
+      <li>
+        <code>git add</code> してステージングする。
       </li>
       <li>
-        <p>努力目標</p>
-        <ul>
-          <li>AWS(アマゾンウェブサービス)にデプロイする</li>
-        </ul>
+        <code>git commit</code>でローカルリポジトリにコミットする。
       </li>
       <li>
-        <p>やらないこと</p>
-        <ul>
-          <li>Unitテスト</li>
-          <li>バックエンドの開発</li>
-          <li>DBの利用</li>
-          <li>E2Eテスト(End-to-End Test)</li>
-          <li>詳細な設計</li>
-        </ul>
+        <code>git push</code>でリモートリポジトリにpushする。
       </li>
-    </ul>
-    <h2 id="何が得られるのか？">
-      <a class="anchor hidden-xs" href="#何が得られるのか？" title="何が得られるのか？">
+      <li>0に戻ったりする。</li>
+    </ol>
+    <h1 id="7分でリモートリポジトリにpushしてみる。">
+      <a class="anchor hidden-xs" href="#7分でリモートリポジトリにpushしてみる。" title="7分でリモートリポジトリにpushしてみる。">
         <span class="octicon octicon-link"></span>
-      </a>何が得られるのか？
-    </h2>
-    <p>このハッカソンで以下の経験ができます。</p>
-    <ul>
-      <li>GitをCLI(コマンドラインインターフェイス)で利用してチーム開発をする経験</li>
-      <li>イチから自分でアプリケーションを開発する経験</li>
-      <li>詳細な設計書なしで、考えながらVue, JSのコードを書く経験</li>
-      <li>設計書通りではなく、自分でより良いUIを考えながらHTML, CSSのコーディングをする経験</li>
-    </ul>
-    <h2 id="タイムスケジュール">
-      <a class="anchor hidden-xs" href="#タイムスケジュール" title="タイムスケジュール">
-        <span class="octicon octicon-link"></span>
-      </a>タイムスケジュール
-    </h2>
-    <table>
-      <thead>
-        <tr>
-          <th>開始時間</th>
-          <th>終了時間</th>
-          <th>やること</th>
-          <th>詳細</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>11:00</td>
-          <td>11:10</td>
-          <td>オープニング</td>
-          <td>何をやるのかの説明</td>
-        </tr>
-        <tr>
-          <td>11:10</td>
-          <td>11:25</td>
-          <td>Gitのレクチャ</td>
-          <td>Gitを超シンプルに理解する</td>
-        </tr>
-        <tr>
-          <td>11:25</td>
-          <td>11:45</td>
-          <td>アイデアソン</td>
-          <td>何を作るのか考える</td>
-        </tr>
-        <tr>
-          <td>11:45</td>
-          <td>12:00</td>
-          <td>設計(1)</td>
-          <td>コンポーネントの分け方とか</td>
-        </tr>
-        <tr>
-          <td>12:00</td>
-          <td>13:00</td>
-          <td>休憩</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>13:00</td>
-          <td>13:15</td>
-          <td>設計(2)</td>
-          <td>レイアウト、分担</td>
-        </tr>
-        <tr>
-          <td>13:15</td>
-          <td>13:30</td>
-          <td>環境構築</td>
-          <td>各自のローカル環境で動くようにする</td>
-        </tr>
-        <tr>
-          <td>13:30</td>
-          <td>16:00</td>
-          <td>開発</td>
-          <td>適宜休憩を取りながら</td>
-        </tr>
-        <tr>
-          <td>16:00</td>
-          <td>16:10</td>
-          <td>クロージング</td>
-          <td>振り返りとか</td>
-        </tr>
-      </tbody>
-    </table>
-    <h2 id="開発環境">
-      <a class="anchor hidden-xs" href="#開発環境" title="開発環境">
-        <span class="octicon octicon-link"></span>
-      </a>開発環境
-    </h2>
-    <p>以下のバージョン・ツールを想定しています。</p>
-    <h3 id="バージョン情報">
-      <a class="anchor hidden-xs" href="#バージョン情報" title="バージョン情報">
-        <span class="octicon octicon-link"></span>
-      </a>バージョン情報
-    </h3>
-    <pre><code class="command hljs"><span class="hljs-selector-tag">Vue</span>: 3<span class="hljs-selector-class">.3</span><span class="hljs-selector-class">.0</span>
-<span class="hljs-selector-tag">node</span>: <span class="hljs-selector-tag">v11</span><span class="hljs-selector-class">.2</span><span class="hljs-selector-class">.0</span>
-<span class="hljs-selector-tag">npm</span>: 6<span class="hljs-selector-class">.4</span><span class="hljs-selector-class">.1</span>
-<span class="hljs-selector-tag">git</span>: 2<span class="hljs-selector-class">.19</span><span class="hljs-selector-class">.1</span>
-<span class="hljs-selector-tag">ElementUI</span>: 2<span class="hljs-selector-class">.6</span><span class="hljs-selector-class">.1</span>
-<span class="hljs-selector-tag">Google</span> <span class="hljs-selector-tag">Chrome</span>: 72<span class="hljs-selector-class">.0</span><span class="hljs-selector-class">.3626</span><span class="hljs-selector-class">.121</span> (<span class="hljs-selector-tag">Official</span> <span class="hljs-selector-tag">Build</span>) (64<span class="hljs-selector-tag">-bit</span>)
-</code></pre>
-    <h2 id="利用するツール">
-      <a class="anchor hidden-xs" href="#利用するツール" title="利用するツール">
-        <span class="octicon octicon-link"></span>
-      </a>利用するツール
-    </h2>
-    <ul>
-      <li>リモートリポジトリ
-        <ul>
-          <li>GitHub</li>
-        </ul>
-      </li>
-      <li>エディタ
-        <ul>
-          <li>VSCode</li>
-        </ul>
-      </li>
-      <li>コンソールエミュレータ
-        <ul>
-          <li>cmder</li>
-        </ul>
-      </li>
-    </ul>
-    <h2 id="構成">
-      <a class="anchor hidden-xs" href="#構成" title="構成">
-        <span class="octicon octicon-link"></span>
-      </a>構成
-    </h2>
-    <h3 id="ディレクトリ構造">
-      <a class="anchor hidden-xs" href="#ディレクトリ構造" title="ディレクトリ構造">
-        <span class="octicon octicon-link"></span>
-      </a>ディレクトリ構造
-    </h3>
-    <pre><code>.
-├── README.md
-├── babel.config.js
-├── package.json
-├── postcss.config.js
-├── public
-│&nbsp;&nbsp; ├── favicon.ico
-│&nbsp;&nbsp; └── index.html
-├── src
-│&nbsp;&nbsp; ├── App.vue
-│&nbsp;&nbsp; ├── assets  # 画像を使う場合はここに入れる
-│&nbsp;&nbsp; │&nbsp;&nbsp; └── mkp.png
-│&nbsp;&nbsp; ├── components  # ここにファイルを追加していく
-│&nbsp;&nbsp; │&nbsp;&nbsp; └── Header.vue
-│&nbsp;&nbsp; ├── main.js
-│&nbsp;&nbsp; ├── router.js
-│&nbsp;&nbsp; └── views
-│&nbsp;&nbsp;     ├── About.vue
-│&nbsp;&nbsp;     ├── CheatSheet.vue
-│&nbsp;&nbsp;     └── MkpApp.vue  # ここでコンポーネントを読み込む
-└── yarn.lock
+      </a>7分でリモートリポジトリにpushしてみる。
+    </h1>
+    <p>
+      <code>components/GitTest.vue</code>を編集して、add→commit→pushしてみましょう。
+    </p>
+    <pre><code class="command hljs">
+$ ls
+README<span class="hljs-selector-class">.md</span>         babel<span class="hljs-selector-class">.config</span><span class="hljs-selector-class">.js</span>   node_modules      package<span class="hljs-selector-class">.json</span>      postcss<span class="hljs-selector-class">.config</span><span class="hljs-selector-class">.js</span> public            src               yarn<span class="hljs-selector-class">.lock</span>
 
+$ git remote add origin https:<span
+  class="hljs-comment"
+>//github.com/tachibanayu24/vue-mini-hackathon.git  </span>
+
+$ git remote -v
+origin	https:<span
+  class="hljs-comment"
+>//github.com/tachibanayu24/vue-mini-hackathon.git (fetch)</span>
+origin	https:<span class="hljs-comment">//github.com/tachibanayu24/vue-mini-hackathon.git (push)</span>
+
+$ git add .
+
+$ git commit -m <span class="hljs-string">"first commit"</span>
+
+$ git push origin master
 </code></pre>
-    <h3 id="静的解析">
-      <a class="anchor hidden-xs" href="#静的解析" title="静的解析">
-        <span class="octicon octicon-link"></span>
-      </a>静的解析
-    </h3>
-    <p>ESLint + Prettier
-      <br>明らかなバグを発見したり、コードスタイルの統一化をしてくれます。
-      <br>スタイルが違うとコンパイル時に怒られます。
-      <br>必須ではないですが、できれば怒られたら修正しましょう。
-    </p>
-    <h2 id="参考">
-      <a class="anchor hidden-xs" href="#参考" title="参考">
-        <span class="octicon octicon-link"></span>
-      </a>参考
-    </h2>
-    <blockquote>
-      <p>Vue CLI 3 - Creating our Project - Real World Vue.js | Vue Mastery
-        <br>
-        <a
-          href="https://www.vuemastery.com/courses/real-world-vue-js/vue-cli/"
-          target="_blank"
-          rel="noopener"
-        >https://www.vuemastery.com/courses/real-world-vue-js/vue-cli/</a>
-      </p>
-    </blockquote>
+    <div
+      dir="ltr"
+      class="resize-sensor"
+      style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+    >
+      <div
+        class="resize-sensor-expand"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 700px; height: 2657px;"
+        ></div>
+      </div>
+      <div
+        class="resize-sensor-shrink"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div>
+      </div>
+    </div>
   </div>
   <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
     <div class="pull-right dropdown">
@@ -263,52 +163,33 @@
         <div class="toc">
           <ul class="nav">
             <li>
-              <a href="#20190318_Vueハンズオン" title="20190318_Vueハンズオン">20190318_Vueハンズオン</a>
+              <a href="#20190318_Gitとはなにか" title="20190318_Gitとはなにか">20190318_Gitとはなにか</a>
+            </li>
+            <li>
+              <a href="#3行要約" title="3行要約">3行要約</a>
+            </li>
+            <li>
+              <a href="#バージョン管理とは" title="バージョン管理とは">バージョン管理とは</a>
+            </li>
+            <li>
+              <a href="#Subversionでいいじゃん" title="Subversionでいいじゃん">Subversionでいいじゃん</a>
             </li>
             <li class>
-              <a
-                href="#Gitで管理するVueアプリケーション開発ハッカソン"
-                title="Gitで管理するVueアプリケーション開発ハッカソン"
-              >Gitで管理するVueアプリケーション開発ハッカソン</a>
+              <a href="#そこでGit" title="そこでGit">そこでGit</a>
               <ul class="nav">
                 <li>
-                  <a href="#はじめに" title="はじめに">はじめに</a>
-                </li>
-                <li>
-                  <a href="#ハッカソンの目標" title="ハッカソンの目標">ハッカソンの目標</a>
-                </li>
-                <li>
-                  <a href="#何が得られるのか？" title="何が得られるのか？">何が得られるのか？</a>
-                </li>
-                <li>
-                  <a href="#タイムスケジュール" title="タイムスケジュール">タイムスケジュール</a>
-                </li>
-                <li>
-                  <a href="#開発環境" title="開発環境">開発環境</a>
-                  <ul class="nav">
-                    <li>
-                      <a href="#バージョン情報" title="バージョン情報">バージョン情報</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#利用するツール" title="利用するツール">利用するツール</a>
+                  <a href="#ステージングとは" title="ステージングとは">ステージングとは</a>
                 </li>
                 <li class>
-                  <a href="#構成" title="構成">構成</a>
-                  <ul class="nav">
-                    <li class>
-                      <a href="#ディレクトリ構造" title="ディレクトリ構造">ディレクトリ構造</a>
-                    </li>
-                    <li>
-                      <a href="#静的解析" title="静的解析">静的解析</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#参考" title="参考">参考</a>
+                  <a href="#addとcommitとpushとpull" title="addとcommitとpushとpull">addとcommitとpushとpull</a>
                 </li>
               </ul>
+            </li>
+            <li>
+              <a
+                href="#7分でリモートリポジトリにpushしてみる。"
+                title="7分でリモートリポジトリにpushしてみる。"
+              >7分でリモートリポジトリにpushしてみる。</a>
             </li>
           </ul>
         </div>
@@ -329,63 +210,48 @@
     <div class="toc">
       <ul class="nav">
         <li>
-          <a href="#20190318_Vueハンズオン" title="20190318_Vueハンズオン">20190318_Vueハンズオン</a>
+          <a href="#20190318_Gitとはなにか" title="20190318_Gitとはなにか">20190318_Gitとはなにか</a>
+        </li>
+        <li>
+          <a href="#3行要約" title="3行要約">3行要約</a>
+        </li>
+        <li>
+          <a href="#バージョン管理とは" title="バージョン管理とは">バージョン管理とは</a>
+        </li>
+        <li>
+          <a href="#Subversionでいいじゃん" title="Subversionでいいじゃん">Subversionでいいじゃん</a>
         </li>
         <li class>
-          <a
-            href="#Gitで管理するVueアプリケーション開発ハッカソン"
-            title="Gitで管理するVueアプリケーション開発ハッカソン"
-          >Gitで管理するVueアプリケーション開発ハッカソン</a>
+          <a href="#そこでGit" title="そこでGit">そこでGit</a>
           <ul class="nav">
-            <li>
-              <a href="#はじめに" title="はじめに">はじめに</a>
-            </li>
-            <li>
-              <a href="#ハッカソンの目標" title="ハッカソンの目標">ハッカソンの目標</a>
-            </li>
-            <li>
-              <a href="#何が得られるのか？" title="何が得られるのか？">何が得られるのか？</a>
-            </li>
-            <li>
-              <a href="#タイムスケジュール" title="タイムスケジュール">タイムスケジュール</a>
-            </li>
-            <li>
-              <a href="#開発環境" title="開発環境">開発環境</a>
-              <ul class="nav">
-                <li>
-                  <a href="#バージョン情報" title="バージョン情報">バージョン情報</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#利用するツール" title="利用するツール">利用するツール</a>
+            <li class>
+              <a href="#ステージングとは" title="ステージングとは">ステージングとは</a>
             </li>
             <li class>
-              <a href="#構成" title="構成">構成</a>
-              <ul class="nav">
-                <li class>
-                  <a href="#ディレクトリ構造" title="ディレクトリ構造">ディレクトリ構造</a>
-                </li>
-                <li>
-                  <a href="#静的解析" title="静的解析">静的解析</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#参考" title="参考">参考</a>
+              <a href="#addとcommitとpushとpull" title="addとcommitとpushとpull">addとcommitとpushとpull</a>
             </li>
           </ul>
         </li>
+        <li>
+          <a href="#7分でリモートリポジトリにpushしてみる。" title="7分でリモートリポジトリにpushしてみる。">7分でリモートリポジトリにpushしてみる。</a>
+        </li>
       </ul>
     </div>
-    <div class="toc-menu">
-      <a class="expand-toggle" href="#">Expand all</a>
-      <a class="back-to-top" href="#">Back to top</a>
-      <a class="go-to-bottom" href="#">Go to bottom</a>
-    </div>
   </div>
+  <GitChallenge />
 </body>
 </template>
+
+<script>
+import GitChallenge from "../components/GitChallenge";
+
+export default {
+  name: "Git",
+  components: {
+    GitChallenge
+  }
+};
+</script>
 
 <style scoped>
 body {
@@ -1262,6 +1128,32 @@ body {
 .ui-toc-dropdown[dir="rtl"] .nav .nav > .active > .nav > .active:hover > a,
 .ui-toc-dropdown[dir="rtl"] .nav .nav > .active > .nav > .active > a {
   padding-right: 38px;
+}
+.markdown-body[lang^="ja"] {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue,
+    Helvetica, Roboto, Arial, Hiragino Kaku Gothic Pro, ヒラギノ角ゴ Pro W3,
+    Osaka, Meiryo, メイリオ, MS Gothic, ＭＳ\ゴシック, sans-serif;
+}
+.ui-toc-dropdown[lang^="ja"] {
+  font-family: Source Sans Pro, Helvetica, Arial, Meiryo UI, MS PGothic,
+    ＭＳ\Ｐゴシック, sans-serif;
+}
+.markdown-body[lang="zh-tw"] {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue,
+    Helvetica, Roboto, Arial, PingFang TC, Microsoft JhengHei, 微軟正黑,
+    sans-serif;
+}
+.ui-toc-dropdown[lang="zh-tw"] {
+  font-family: Source Sans Pro, Helvetica, Arial, Microsoft JhengHei UI,
+    微軟正黑UI, sans-serif;
+}
+.markdown-body[lang="zh-cn"] {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue,
+    Helvetica, Roboto, Arial, PingFang SC, Microsoft YaHei, 微软雅黑, sans-serif;
+}
+.ui-toc-dropdown[lang="zh-cn"] {
+  font-family: Source Sans Pro, Helvetica, Arial, Microsoft YaHei UI, 微软雅黑UI,
+    sans-serif;
 }
 .ui-affix-toc {
   position: fixed;

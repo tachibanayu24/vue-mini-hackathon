@@ -20,6 +20,11 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
     {
+      path: "/git",
+      name: "git",
+      component: () => import(/* webpackChunkName: "about" */ "./views/Git.vue")
+    },
+    {
       path: "/cheat-sheet",
       name: "cheat-sheet",
       component: () =>
