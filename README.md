@@ -1,29 +1,31 @@
 # vue-hackathon
 
-## Project setup
+## 環境構築(ローカル)
+
+1. プロジェクトのディレクトリを作成してコードをクローン(ローカルに複製)してパッケージをインストールしてサーバを起動する
+
 ```
-yarn install
+$ pwd
+  /なんとかなんとか/Desktop  # カレントディレクトリがDesktopであることを確認する。
+
+$ git clone https://github.com/tachibanayu24/vue-mini-hackathon.git
+
+$ cd vue-mini-hackathon
+
+$ npm i
+
+$ npm run serve
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+2. ブラウザで http://localhost:8080 を開く
 
-### Compiles and minifies for production
-```
-yarn run build
-```
 
-### Run your tests
-```
-yarn run test
-```
+## デプロイ手順(ここは理解する必要なし)
 
-### Lints and fixes files
-```
-yarn run lint
-```
+firebase hostingを利用する。
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. `firebase init`時にはpublicディレクトリはdistを選択。SPAで設定する。
+
+2. `npm run build`でdistにビルドされていく。
+
+3. `firebase deploy`で公開する。

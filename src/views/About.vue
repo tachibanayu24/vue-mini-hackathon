@@ -31,6 +31,8 @@
       <li>CSS</li>
     </ul>
     <p>あたりの理解度を深めることができます。</p>
+    <p>このアプリケーションは、<a href="https://mkp-vue-app.firebaseapp.com" target="_blank">https://mkp-vue-app.firebaseapp.com</a>で公開しています。</p>
+    <p>ソースコードは、<a href="https://github.com/tachibanayu24/vue-mini-hackathon" target="_blank">https://github.com/tachibanayu24/vue-mini-hackathon</a>で公開しています。</p>
     <h2 id="ハッカソンの目標">
       <a class="anchor hidden-xs" href="#ハッカソンの目標" title="ハッカソンの目標">
         <span class="octicon octicon-link"></span>
