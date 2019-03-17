@@ -7,12 +7,12 @@
       text-color="#223a70"
     >
       <el-menu-item>
-        <img class="header-icon" alt="logo" src="../assets/mkp.png" />
+        <img class="header-icon" alt="logo" src="../assets/mkp.png">
         <span class="header-text">mini Hackathon</span>
       </el-menu-item>
-      <el-menu-item index="about" :route="{ name: 'about' }">
-        <a href="/about">
-          <strong>About</strong>
+      <el-menu-item index="top" :route="{ name: 'top' }">
+        <a href="/">
+          <strong>Top</strong>
         </a>
       </el-menu-item>
       <el-menu-item index="git" :route="{ name: 'git' }">

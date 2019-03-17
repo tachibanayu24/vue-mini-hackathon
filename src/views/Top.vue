@@ -20,6 +20,8 @@
       <br>ページヘッダの
       <code>MKP APP</code>タブでSPA(シングルページアプリケーション)を開発します。
       <br>
+      <code>Gitとは</code>タブは、おそらく初めて利用する人が多いGitの概要を書いています。
+      <br>
       <code>CheatSheet</code>タブは、コマンドなどを忘れたときのために。
     </p>
     <p>アンケートで希望の多かった</p>
@@ -51,7 +53,7 @@
       <li>
         <p>努力目標</p>
         <ul>
-          <li>AWS(アマゾンウェブサービス)にデプロイする</li>
+          <li>インターネットに公開する(やっていいなら)</li>
         </ul>
       </li>
       <li>
@@ -313,11 +315,6 @@
               </ul>
             </li>
           </ul>
-        </div>
-        <div class="toc-menu">
-          <a class="expand-toggle" href="#">Expand all</a>
-          <a class="back-to-top" href="#">Back to top</a>
-          <a class="go-to-bottom" href="#">Go to bottom</a>
         </div>
       </ul>
     </div>
