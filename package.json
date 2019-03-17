@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "element-ui": "^2.6.1",
+    "firebase-tools": "^6.5.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1"
   },
