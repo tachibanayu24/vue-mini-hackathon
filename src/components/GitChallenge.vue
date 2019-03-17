@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .git-challenge {
   text-align: center;
 }
