@@ -43,6 +43,15 @@ export default {
     SelectCondition,
     Roulette,
     StoreList
+  },
+   data() {
+    return {
+      selectCondition: {
+        price: "",
+        distance: "",
+        category: "",
+      }
+    };
   }
 };
 </script>
