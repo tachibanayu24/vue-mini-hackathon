@@ -61,7 +61,7 @@ export default {
   name: "SelectCondition",
   data() {
     return {};
-    selectCondition: "ランダム";
+    selectCondition: "ランダム"
   }
 };
 </script>
