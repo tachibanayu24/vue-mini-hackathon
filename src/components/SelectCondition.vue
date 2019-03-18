@@ -13,7 +13,7 @@
           <el-col :span="2">
             <h4>おねだん</h4>
           </el-col>
-          <el-col :span="6">
+          <el-col :span="4">
             <el-radio-group v-model="selectCondition.price">
               <el-radio-button
                 v-for="(price, idx) in price"
@@ -29,7 +29,7 @@
           <el-col :span="2">
             <h4>とおさ</h4>
           </el-col>
-          <el-col :span="6">
+          <el-col :span="4" justify="left">
             <el-radio-group v-model="selectCondition.distance">
               <el-radio-button
                 v-for="(distance, idx) in distance"
@@ -45,7 +45,7 @@
           <el-col :span="2">
             <h4>しゅるい</h4>
           </el-col>
-          <el-col :span="6">
+          <el-col :span="4">
             <el-radio-group v-model="selectCondition.category">
               <el-radio-button
                 v-for="(category, idx) in category"

@@ -32,7 +32,6 @@
 </template>
 
 <style scoped>
-<style>
 .otenki {
   margin: 40px 0px;
   font-size: 16px;
