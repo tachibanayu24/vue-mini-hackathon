@@ -18,7 +18,7 @@
             </el-col>
             <el-col :span="12">
               <el-row>
-                <span>15℃/4℃</span>
+                <span>{{this.beta_otenkiInformation.temp_max}}℃/{{this.beta_otenkiInformation.temp_min}}℃</span>
               </el-row>
               <el-row>
                 <span>降水確率：10％</span>
@@ -106,6 +106,16 @@ export default {
   // 業務処理を記載します。
   methods: {
     AfterCreatedOtenki() {
+/*      API_KEY = "9e0c9db57b9d213706fa5521c8674369"
+BASE_URL = "http://api.openweathermap.org/data/2.5/forecast"
+
+require "json"
+require "open-uri"
+
+response = open(BASE_URL + "?q=Akashi-shi,jp&APPID=#{API_KEY}")
+puts JSON.pretty_generate(JSON.parse(response.read))*/
+
+
       this.otenkiInformation = null;
       this.otenkiInfornation.temp = this.beta_otenkiInformation.temp;
       this.otenkiInfornation.temp_max = this.beta_otenkiInformation.temp_max;
