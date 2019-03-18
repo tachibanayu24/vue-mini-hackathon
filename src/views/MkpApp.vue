@@ -1,21 +1,24 @@
 <template>
+  <!-- eslint-disable -->
   <div class="mkp-app">
     <el-row>
       <el-col :span="12">
-        <div class="grid-content bg-purple-light">kokoni logo</div>
+        <div class="logo-img">
+          <img src="../assets/logo.png" alt>
+        </div>
       </el-col>
       <el-col :span="12">
-        <div class="logo">
+        <div class="logo-anime">
           <div id="container">Make your
             <div id="flip">
               <div>
                 <div>Lunch🍔</div>
               </div>
               <div>
-                <div>Lunch🍣</div>
+                <div>Lunch🍜</div>
               </div>
               <div>
-                <div>Lunch🍜</div>
+                <div>Lunch🌮</div>
               </div>
             </div>AweSoMe!
           </div>
@@ -24,9 +27,11 @@
     </el-row>
 
     <Otenki/>
-    <SelectCondition/>
+    <SelectCondition :selectCondition="selectCondition" ref="selectCondition"/>
     <Roulette/>
+    <el-button @click="startRoulette">ぼたん(仮)</el-button>
     <StoreList/>
+    <Footer/>
   </div>
 </template>
 
@@ -35,6 +40,7 @@ import Otenki from "../components/Otenki";
 import SelectCondition from "../components/SelectCondition";
 import Roulette from "../components/Roulette.vue";
 import StoreList from "../components/StoreList.vue";
+import Footer from "../components/Footer.vue";
 
 export default {
   name: "OhiRoulette",
@@ -42,35 +48,54 @@ export default {
     Otenki,
     SelectCondition,
     Roulette,
-    StoreList
+    StoreList,
+    Footer
   },
-   data() {
+
+  data() {
     return {
       selectCondition: {
         price: "",
         distance: "",
-        category: "",
+        category: ""
       }
     };
+  },
+  methods: {
+    startRoulette(){
+      this.selectCondition = this.$refs.SelectCondition.selectCondition;
+      this.$refs.Roulette.selectStore();
+    }
   }
 };
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Roboto:700");
+/* eslint-disable */
+@import url(https://fonts.googleapis.com/css?family=Roboto:700);
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
-body {
-  margin: 0px;
+.logo-img img {
+  /* font-family: "Noto Sans JP";
+  font-size: 9em;
+  color: #666;
+  font-weight: 900;
+  text-shadow: -1px 0 #bfc0c0, 0 1px #bfc0c0, 1px 0 #bfc0c0, 0 -1px #bfc0c0; */
+  height: 70px;
+  margin: 20px;
+  float: right;
+}
+
+.logo-anime {
+  margin: 0px 20px;
   font-family: "Roboto";
-  text-align: center;
 }
 
 #container {
   color: #999;
   text-transform: uppercase;
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
-  /* position: fixed; */
   width: 100%;
   bottom: 45%;
   display: block;
@@ -97,9 +122,11 @@ body {
 #flip div div {
   background: #42c58a;
 }
+
 #flip div:first-child div {
   background: #4ec7f3;
 }
+
 #flip div:last-child div {
   background: #dc143c;
 }
@@ -108,24 +135,31 @@ body {
   0% {
     margin-top: -270px;
   }
+
   5% {
-    margin-top: -180px;
+    margin-top: -170px;
   }
+
   33% {
-    margin-top: -180px;
+    margin-top: -170px;
   }
+
   38% {
-    margin-top: -90px;
+    margin-top: -80px;
   }
+
   66% {
-    margin-top: -90px;
+    margin-top: -80px;
   }
+
   71% {
     margin-top: 0px;
   }
+
   99.99% {
     margin-top: 0px;
   }
+
   100% {
     margin-top: -270px;
   }
