@@ -48,11 +48,10 @@
           category : "中華"
         }
       };
-      
     },
 
     methods: {
-      selectStore() {
+      async selectStore() {
         var kouhoStoreList = [];
         for(var i = 0; i < this.storeList.length; i++) {
           var tfFlug = true;
@@ -63,16 +62,13 @@
             kouhoStoreList.push(this.storeList[i]);
           }
         }
-
         if(kouhoStoreList.length === 0) {
           this.selectedStore = "該当する店無いよ"
         }else{
-          var j = 0;
           var randnum = Math.floor( Math.random() * kouhoStoreList.length );
           this.selectedStore = kouhoStoreList[randnum].name;
         }
       }
     }
-
   };
 </script>
