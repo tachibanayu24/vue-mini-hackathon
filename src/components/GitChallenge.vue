@@ -2,7 +2,7 @@
   <div class="git-challenge">
     <h3>👇編集してコミットしよう👇</h3>
     <div class="edit-area">
-      <!-- <p>なにか書く(立花)</p> -->
+      <p>たちばな</p>
       <!-- <p>なにか書く(小野田)</p> -->
       <p>おにょだ～～～ですうううう</p>
       <p>pull⇒diff⇒add⇒commit⇒push</p>
