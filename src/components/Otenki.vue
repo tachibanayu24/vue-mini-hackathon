@@ -1,10 +1,8 @@
 <template>
-  <div>
-
-
+  <div class="otenki">
     <el-row type="flex" justify="center">
-      <el-col :span="8">
-        <el-card :body-style="{ padding: '5px' }">
+      <el-col :span="4">
+        <el-card :body-style="{ padding: '15px' }">
           <el-row>
             <el-col :span="4">
               <img src="..\assets\sunny.png" class="image">
@@ -34,6 +32,17 @@
 </template>
 
 <style scoped>
+<style>
+.otenki {
+  margin: 40px 0px;
+  font-size: 16px;
+}
+
+.otenki img {
+  height: 45px;
+  width: 45px;
+}
+
 .time {
   font-size: 13px;
   color: #999;
