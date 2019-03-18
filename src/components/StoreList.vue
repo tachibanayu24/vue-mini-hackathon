@@ -1,6 +1,6 @@
 <template>
-  <div class="store-list-title">
-    <h1>店舗一覧</h1>
+  <div class="store-list">
+    <h4>店舗一覧</h4>
     <div class="store-list-table">
       <el-table :data="shoplist" style="width:100%" empty-text="店舗が登録されていません。" align="center">
         <el-table-column label="店舗名" prop="name" align="center" width="300" sortable/>
@@ -13,8 +13,9 @@
 </template>
 
 <style scoped>
-.store-list-title {
+.store-list {
   text-align: center;
+  margin: 50px;
 }
 .store-list-table {
   text-align: center;
