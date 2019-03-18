@@ -58,13 +58,15 @@ export default {
         price: "",
         distance: "",
         category: ""
-      }
+      },
+      shoplist: []
     };
   },
   methods: {
     startRoulette(){
-      this.selectCondition = this.$refs.SelectCondition.selectCondition;
-      this.$refs.Roulette.selectStore();
+      //this.selectCondition = this.$refs.SelectCondition.selectCondition;
+      this.shoplist = this.$refs.StoreList.shoplist;
+      this.$refs.Roulette.selectStore(this.$refs.SelectCondition.selectConditionType, this.selectCondition, this.shoplist);
     }
   }
 };
