@@ -33,17 +33,44 @@
             price: 100,
             distance: 5,
             category: "中華"
-          }
-        ]
+          },
+          {
+            name: "だめなお店",
+            price: 600,
+            distance: 5,
+            category: "中華"
+          },
+        ],
+
+        selectedCondition: {
+          price: 500,
+          distance: 5,
+          category : "中華"
+        }
       };
       
     },
 
     methods: {
       selectStore() {
-        var randnum = Math.floor( Math.random() * this.storeList.length );
-        console.log(randnum);
-        this.selectedStore = this.storeList[randnum].name;
+        var kouhoStoreList = [];
+        for(var i = 0; i < this.storeList.length; i++) {
+          var tfFlug = true;
+          if(this.selectedCondition.price !== null && this.storeList[i].price > this.selectedCondition.price) {tfFlug = false;}
+          if(this.selectedCondition.distance !== null && this.storeList[i].distance > this.selectedCondition.distance) {tfFlug = false;}
+          if(this.selectedCondition.category !== null && this.storeList[i].category !== this.selectedCondition.category) {tfFlug = false;}
+          if(tfFlug === true) {
+            kouhoStoreList.push(this.storeList[i]);
+          }
+        }
+
+        if(kouhoStoreList.length === 0) {
+          this.selectedStore = "該当する店無いよ"
+        }else{
+          var j = 0;
+          var randnum = Math.floor( Math.random() * kouhoStoreList.length );
+          this.selectedStore = kouhoStoreList[randnum].name;
+        }
       }
     }
 
