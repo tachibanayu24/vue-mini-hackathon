@@ -1,4 +1,5 @@
 <template>
+<!-- eslint-disable -->
   <div class="store-list">
     <h4>店舗一覧</h4>
     <div class="store-list-table">
@@ -29,35 +30,47 @@ export default {
     return {
       shoplist: [
         {
-          name: "和食じゃあああああ",
+          name: "寿司　やまと",
           price: "501~1000円",
-          distance: "~5分",
+          distance: "6~10分",
           category: "和食"
         },
         {
-          name: "コンビニA店",
+          name: "ミニストップ",
           price: "~500円",
           distance: "~5分",
           category: "その他"
         },
         {
-    name: "洋食C店",
-    price: "501~1000円",
-    distance: "6~10分",
-    category: "洋食"
-  },
-  {
-    name: "焼肉J店",
-    price: "1001円~",
-    distance: "6~10分",
-    category: "その他"
-  },
-  {
-    name: "中華903号店",
-    price: "1001円~",
-    distance: "10分～",
-    category: "中華"
-  },
+          name: "カプリチョーザ",
+          price: "1001円~",
+          distance: "10分~",
+          category: "洋食"
+        },
+        {
+          name: "舎鈴",
+          price: "1001円~",
+          distance: "6~10分",
+          category: "中華"
+        },
+        {
+          name: "社食",
+          price: "501~1000円",
+          distance: "10分~",
+          category: "その他"
+        },
+        {
+          name: "チンタンタン",
+          price: "501~1000円",
+          distance: "6~10分",
+          category: "中華"
+        },
+        {
+          name: "サイゼリヤ",
+          price: "~500円",
+          distance: "6~10分",
+          category: "洋食"
+        },
       ]
     };
   }

@@ -4,7 +4,7 @@
     <el-row>
       <el-col :span="12">
         <div class="logo-img">
-          <img src="../assets/logo.png" alt />
+          <img src="../assets/logo.png" alt>
         </div>
       </el-col>
       <el-col :span="12">
@@ -27,8 +27,9 @@
     </el-row>
 
     <Otenki/>
-    <SelectCondition/>
+    <SelectCondition :selectCondition="selectCondition" ref="selectCondition"/>
     <Roulette/>
+    <el-button @click="startRoulette">ぼたん(仮)</el-button>
     <StoreList/>
     <Footer/>
   </div>
@@ -49,6 +50,24 @@ export default {
     Roulette,
     StoreList,
     Footer
+  },
+
+  data() {
+    return {
+      selectCondition: {
+        price: "",
+        distance: "",
+        category: ""
+      },
+      shoplist: []
+    };
+  },
+  methods: {
+    startRoulette(){
+      //this.selectCondition = this.$refs.SelectCondition.selectCondition;
+      this.shoplist = this.$refs.StoreList.shoplist;
+      this.$refs.Roulette.selectStore(this.$refs.SelectCondition.selectConditionType, this.selectCondition, this.shoplist);
+    }
   }
 };
 </script>
