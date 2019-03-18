@@ -30,6 +30,7 @@
     <SelectCondition/>
     <Roulette/>
     <StoreList/>
+    <Footer/>
   </div>
 </template>
 
@@ -38,6 +39,8 @@ import Otenki from "../components/Otenki";
 import SelectCondition from "../components/SelectCondition";
 import Roulette from "../components/Roulette.vue";
 import StoreList from "../components/StoreList.vue";
+import Footer from "../components/Footer.vue";
+
 
 export default {
   name: "OhiRoulette",
@@ -45,7 +48,8 @@ export default {
     Otenki,
     SelectCondition,
     Roulette,
-    StoreList
+    StoreList,
+    Footer
   }
 };
 </script>
