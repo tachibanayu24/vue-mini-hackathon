@@ -1,14 +1,27 @@
 <template>
   <div class="mkp-app">
-    <div class="word">
-      <span>お</span>
-      <span>ひ</span>
-      <span>る</span>
-      <span>〜</span>
-      <span>れ</span>
-      <span>っ</span>
-      <span>と</span>
-    </div>
+    <el-row>
+      <el-col :span="12">
+        <div class="grid-content bg-purple-light">kokoni logo</div>
+      </el-col>
+      <el-col :span="12">
+        <div class="logo">
+          <div id="container">Make your
+            <div id="flip">
+              <div>
+                <div>Lunch🍔</div>
+              </div>
+              <div>
+                <div>Lunch🍣</div>
+              </div>
+              <div>
+                <div>Lunch🍜</div>
+              </div>
+            </div>AweSoMe!
+          </div>
+        </div>
+      </el-col>
+    </el-row>
 
     <Otenki/>
     <SelectCondition/>
@@ -32,159 +45,89 @@ export default {
     StoreList
   }
 };
-
-window.onload = () => {
-  let spans = document.querySelectorAll(".word span");
-  spans.forEach((span, idx) => {
-    span.addEventListener("click", e => {
-      e.target.classList.add("active");
-    });
-    span.addEventListener("animationend", e => {
-      e.target.classList.remove("active");
-    });
-
-    // Initial animation
-    setTimeout(() => {
-      span.classList.add("active");
-    }, 750 * (idx + 1));
-  });
-}
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Anton|Roboto");
+@import url("https://fonts.googleapis.com/css?family=Roboto:700");
 
-.word {
-  font-family: "Anton", sans-serif;
-  perspective: 1000px;
-  perspective-origin: 200px 40px;
-}
-
-.word span {
-  cursor: pointer;
-  display: inline-block;
-  font-size: 100px;
-  user-select: none;
-  line-height: 0.8;
-}
-
-.word span:nth-child(1).active {
-  animation: balance 1.5s ease-out;
-  transform-origin: 0% 100% 0px;
-}
-
-@keyframes balance {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-
-  30%,
-  60% {
-    transform: rotate(-45deg);
-  }
-}
-
-.word span:nth-child(2).active {
-  animation: shrinkjump 1s ease-in-out;
-  transform-origin: bottom center;
-}
-
-@keyframes shrinkjump {
-  10%,
-  35% {
-    transform: scale(2, 0.2) translate(0, 0);
-  }
-
-  45%,
-  50% {
-    transform: scale(1) translate(0, -150px);
-  }
-
-  80% {
-    transform: scale(1) translate(0, 0);
-  }
-}
-
-.word span:nth-child(3).active {
-  animation: falling 2s ease-out;
-  transform-origin: bottom center;
-}
-
-@keyframes falling {
-  12% {
-    transform: rotateX(240deg);
-  }
-
-  24% {
-    transform: rotateX(150deg);
-  }
-
-  36% {
-    transform: rotateX(200deg);
-  }
-
-  48% {
-    transform: rotateX(175deg);
-  }
-
-  60%,
-  85% {
-    transform: rotateX(180deg);
-  }
-
-  100% {
-    transform: rotateX(0deg);
-  }
-}
-
-.word span:nth-child(4).active {
-  animation: rotate 1s ease-out;
-}
-
-@keyframes rotate {
-  20%,
-  80% {
-    transform: rotateY(180deg);
-  }
-
-  100% {
-    transform: rotateY(360deg);
-  }
-}
-
-.word span:nth-child(5).active {
-  animation: toplong 1.5s linear;
-}
-
-@keyframes toplong {
-  10%,
-  40% {
-    transform: translateY(-48vh) scaleY(1);
-  }
-
-  90% {
-    transform: translateY(-48vh) scaleY(4);
-  }
-}
-
-/* Other styles */
 body {
-  background-color: skyblue;
-  color: #fff;
-  display: flex;
-  font-family: "Roboto", sans-serif;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  height: 100vh;
-  margin: 0;
+  margin: 0px;
+  font-family: "Roboto";
+  text-align: center;
 }
 
-.fixed {
+#container {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: bold;
+  /* position: fixed; */
+  width: 100%;
+  bottom: 45%;
+  display: block;
+  text-align: left;
+}
+
+#flip {
+  height: 50px;
+  overflow: hidden;
+}
+
+#flip > div > div {
+  color: #fff;
+  padding: 4px 12px;
+  height: 45px;
+  margin-bottom: 45px;
+  display: inline-block;
+}
+
+#flip div:first-child {
+  animation: show 5s linear infinite;
+}
+
+#flip div div {
+  background: #42c58a;
+}
+#flip div:first-child div {
+  background: #4ec7f3;
+}
+#flip div:last-child div {
+  background: #dc143c;
+}
+
+@keyframes show {
+  0% {
+    margin-top: -270px;
+  }
+  5% {
+    margin-top: -180px;
+  }
+  33% {
+    margin-top: -180px;
+  }
+  38% {
+    margin-top: -90px;
+  }
+  66% {
+    margin-top: -90px;
+  }
+  71% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+
+p {
   position: fixed;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  bottom: 30px;
+  font-size: 12px;
+  color: #999;
+  margin-top: 200px;
 }
 </style>
