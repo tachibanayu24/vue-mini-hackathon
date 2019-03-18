@@ -41,7 +41,6 @@ import Roulette from "../components/Roulette.vue";
 import StoreList from "../components/StoreList.vue";
 import Footer from "../components/Footer.vue";
 
-
 export default {
   name: "OhiRoulette",
   components: {
@@ -57,7 +56,6 @@ export default {
 <style scoped>
 /* eslint-disable */
 @import url(https://fonts.googleapis.com/css?family=Roboto:700);
-@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
 .logo-img img {
   /* font-family: "Noto Sans JP";
@@ -66,7 +64,7 @@ export default {
   font-weight: 900;
   text-shadow: -1px 0 #bfc0c0, 0 1px #bfc0c0, 1px 0 #bfc0c0, 0 -1px #bfc0c0; */
   height: 70px;
-  margin: 20px;;
+  margin: 20px;
   float: right;
 }
 

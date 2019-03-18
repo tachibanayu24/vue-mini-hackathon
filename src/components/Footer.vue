@@ -4,11 +4,11 @@
     <el-row>
       <el-col :span="16" class="footer-left">Made By</el-col>
       <el-col :span="6" class="footer-right">
-        <p>Shohei Umehara</p>
+        <p>Akira Tsuru</p>
         <p>Nao Onoda</p>
-        <p>Yuto Tachibana</p>
-        <p>Tsuru Akira</p>
+        <p>Shohei Umehara</p>
         <p>Shinichiro Higuchi</p>
+        <p>Yuto Tachibana</p>
       </el-col>
     </el-row>
   </footer>
