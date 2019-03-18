@@ -1,7 +1,5 @@
 <template>
   <div class="mkp-app">
-    <h1>ここにルーレット作るで</h1>
-    
     <el-form>
       <h2>{{selectedStore}}</h2>
       <el-button @click="selectStore">ぼたん(仮)</el-button>
