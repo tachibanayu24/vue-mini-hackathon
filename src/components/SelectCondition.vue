@@ -49,19 +49,18 @@
           </el-radio-group>
         </el-col>
       </el-row>
-
-      </div>
     </div>
+  </div>
   <!-- </el-form-item> -->
 </template>
-
 
 <script>
 export default {
   name: "SelectCondition",
   data() {
-    return {};
-    selectCondition: "ランダム"
+    return {
+      selectCondition: "ランダム"
+    };
   }
 };
 </script>
