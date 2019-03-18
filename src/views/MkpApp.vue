@@ -1,10 +1,10 @@
 <template>
+  <!-- eslint-disable -->
   <div class="mkp-app">
     <el-row>
       <el-col :span="12">
         <div class="logo-img">
-          <!-- <img src="../assets/logo.png" alt> -->
-          <h1>おひる～れっと</h1>
+          <img src="../assets/logo.png" alt />
         </div>
       </el-col>
       <el-col :span="12">
@@ -15,10 +15,10 @@
                 <div>Lunch🍔</div>
               </div>
               <div>
-                <div>Lunch🍣</div>
+                <div>Lunch🍜</div>
               </div>
               <div>
-                <div>Lunch🍜</div>
+                <div>Lunch🌮</div>
               </div>
             </div>AweSoMe!
           </div>
@@ -51,17 +51,18 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Roboto:700");
+/* eslint-disable */
+@import url(https://fonts.googleapis.com/css?family=Roboto:700);
 @import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
-.logo-img {
-  font-family: "Noto Sans JP";
-    font-size: 9em;
-
+.logo-img img {
+  /* font-family: "Noto Sans JP";
+  font-size: 9em;
   color: #666;
   font-weight: 900;
-  text-shadow: -1px 0 #bfc0c0, 0 1px #bfc0c0, 1px 0 #bfc0c0, 0 -1px #bfc0c0;
-  margin: auto;
+  text-shadow: -1px 0 #bfc0c0, 0 1px #bfc0c0, 1px 0 #bfc0c0, 0 -1px #bfc0c0; */
+  height: 70px;
+  margin: 20px;;
   float: right;
 }
 
