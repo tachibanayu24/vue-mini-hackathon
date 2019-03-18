@@ -1,30 +1,26 @@
 <template>
   <!-- eslint-disable -->
   <div class="mkp-app">
-    <el-row>
-      <el-col :span="12">
-        <div class="logo-img">
-          <img src="../assets/logo.png" alt>
-        </div>
-      </el-col>
-      <el-col :span="12">
-        <div class="logo-anime">
-          <div id="container">Make your
-            <div id="flip">
-              <div>
-                <div>Lunch🍔</div>
-              </div>
-              <div>
-                <div>Lunch🍜</div>
-              </div>
-              <div>
-                <div>Lunch🌮</div>
-              </div>
-            </div>AweSoMe!
+    <div class="wrapper">
+      <div class="logo-anime">
+        <div id="container">
+          <div class="floated text-make">Make</div>
+          <div id="flip">
+            <div>
+              <div>🍤Lunch🍣</div>
+            </div>
+            <div>
+              <div>🍜Lunch🥟</div>
+            </div>
+            <div>
+              <div>🌮Lunch🍔</div>
+            </div>
           </div>
+          <div class="floated text-awesome">AweSoMe!</div>
         </div>
-      </el-col>
-    </el-row>
+      </div>
+    </div>
+    <hr />
 
     <Otenki/>
     <SelectCondition :selectCondition="selectCondition" ref="selectCondition"/>
@@ -63,10 +59,14 @@ export default {
     };
   },
   methods: {
-    startRoulette(){
+    startRoulette() {
       //this.selectCondition = this.$refs.SelectCondition.selectCondition;
       this.shoplist = this.$refs.StoreList.shoplist;
-      this.$refs.Roulette.selectStore(this.$refs.SelectCondition.selectConditionType, this.selectCondition, this.shoplist);
+      this.$refs.Roulette.selectStore(
+        this.$refs.SelectCondition.selectConditionType,
+        this.selectCondition,
+        this.shoplist
+      );
     }
   }
 };
@@ -76,20 +76,31 @@ export default {
 /* eslint-disable */
 @import url(https://fonts.googleapis.com/css?family=Roboto:700);
 
-.logo-img img {
-  /* font-family: "Noto Sans JP";
-  font-size: 9em;
-  color: #666;
-  font-weight: 900;
-  text-shadow: -1px 0 #bfc0c0, 0 1px #bfc0c0, 1px 0 #bfc0c0, 0 -1px #bfc0c0; */
-  height: 70px;
-  margin: 20px;
-  float: right;
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo-anime {
-  margin: 0px 20px;
+  margin: 20px 0;
   font-family: "Roboto";
+  position: relative;
+  width: 250px;
+}
+
+.floated {
+  float: left;
+}
+
+.text-make {
+  margin-right: 10px;
+  padding: 3px;
+}
+
+.text-awesome {
+  position: absolute;
+  right: 14px;
 }
 
 #container {
@@ -99,12 +110,11 @@ export default {
   font-weight: bold;
   width: 100%;
   bottom: 45%;
-  display: block;
-  text-align: left;
 }
 
 #flip {
   height: 50px;
+  width: 160px;
   overflow: hidden;
 }
 
@@ -164,14 +174,5 @@ export default {
   100% {
     margin-top: -270px;
   }
-}
-
-p {
-  position: fixed;
-  width: 100%;
-  bottom: 30px;
-  font-size: 12px;
-  color: #999;
-  margin-top: 200px;
 }
 </style>

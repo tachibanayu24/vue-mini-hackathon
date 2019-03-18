@@ -1,27 +1,20 @@
 <template>
   <div class="otenki">
     <el-row type="flex" justify="center">
-      <el-col :span="4">
-        <el-card :body-style="{ padding: '15px' }">
+      <el-col :span="6">
+        <el-card :body-style="{ padding: '5px' }">
           <el-row>
-            <el-col :span="4">
-              <img src="..\assets\sunny.png" class="image">
+            <el-col :span="8">
+              <img :src="this.weatherIcon" class="weather-img" alt>
             </el-col>
             <el-col :span="8">
-              <el-row>
-                <span>{{this.beta_otenkiInformation.temp}}℃</span>
-              </el-row>
-
-              <el-row>
-                <span>{{this.beta_otenkiInformation.main}}</span>
+              <el-row class="weather-desc">
+                <span>{{this.results.list[0].weather[0].main}}</span>
               </el-row>
             </el-col>
-            <el-col :span="12">
-              <el-row>
-                <span>{{this.beta_otenkiInformation.temp_max}}℃/{{this.beta_otenkiInformation.temp_min}}℃</span>
-              </el-row>
-              <el-row>
-                <span>降水確率：10％</span>
+            <el-col :span="8">
+              <el-row class="weather-desc">
+                <span>{{Math.round(this.results.list[0].main.temp_max - 273.15)}}℃</span>
               </el-row>
             </el-col>
           </el-row>
@@ -37,9 +30,8 @@
   font-size: 16px;
 }
 
-.otenki img {
-  height: 45px;
-  width: 45px;
+.weather-sun {
+  color: #ff7b25;
 }
 
 .time {
@@ -57,9 +49,12 @@
   float: right;
 }
 
-.image {
-  width: 100%;
-  display: block;
+.weather-img {
+  height: 50px;
+}
+
+.weather-desc {
+  margin: 12px;
 }
 
 .clearfix:before,
@@ -75,12 +70,19 @@
 
 
 <script>
+import axios from "axios";
+axios.defaults.headers.post["Content-Type"] = "application/json;charset=UTF-8";
+axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+
 export default {
   name: "Otenki",
 
   data() {
     return {
+      loading: true,
       //お天気情報
+      results: "",
+      weatherIcon: null,
       otenkiInformation: {
         temp: null,
         temp_max: null,
@@ -98,24 +100,22 @@ export default {
     };
   },
 
-  // ライフサイクルフック処理を記載します。
   created() {
-    //ここでテーブルを空にする
+    axios
+      .get(
+        `${"https://cors-anywhere.herokuapp.com/"}http://api.openweathermap.org/data/2.5/forecast?q=Tokyo,jp&APPID=9e0c9db57b9d213706fa5521c8674369`
+      )
+      .then(response => {
+        this.results = response.data;
+        this.weatherIcon =
+          "http://openweathermap.org/img/w/" +
+          this.results.list[0].weather[0].icon +
+          ".png";
+        this.loading = false;
+      });
   },
-
-  // 業務処理を記載します。
   methods: {
     AfterCreatedOtenki() {
-/*      API_KEY = "9e0c9db57b9d213706fa5521c8674369"
-BASE_URL = "http://api.openweathermap.org/data/2.5/forecast"
-
-require "json"
-require "open-uri"
-
-response = open(BASE_URL + "?q=Akashi-shi,jp&APPID=#{API_KEY}")
-puts JSON.pretty_generate(JSON.parse(response.read))*/
-
-
       this.otenkiInformation = null;
       this.otenkiInfornation.temp = this.beta_otenkiInformation.temp;
       this.otenkiInfornation.temp_max = this.beta_otenkiInformation.temp_max;
