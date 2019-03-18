@@ -73,7 +73,6 @@ export default {
 <style scoped>
 /* eslint-disable */
 @import url(https://fonts.googleapis.com/css?family=Roboto:700);
-@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
 .logo-img img {
   /* font-family: "Noto Sans JP";
