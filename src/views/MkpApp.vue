@@ -1,6 +1,6 @@
 <template>
   <div class="mkp-app">
-    <h1>おひる～れっと</h1>
+    <img class="logo" src="../assets/logo.png" alt>
     <Otenki />
     <SelectCondition />
     <Roulette />
@@ -24,3 +24,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .logo {
+    height: 70px;
+    margin: 20px;
+  }
+</style>
+
