@@ -27,7 +27,7 @@
       </el-menu-item>
       <el-menu-item index="mkp-app" :route="{ name: 'mkp-app' }">
         <a href="/mkp-app">
-          <strong>MKP APP</strong>
+          <strong>おひる～れっと</strong>
         </a>
       </el-menu-item>
     </el-menu>
