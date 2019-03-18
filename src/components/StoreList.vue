@@ -1,4 +1,5 @@
 <template>
+<!-- eslint-disable -->
   <div class="store-list">
     <h4>店舗一覧</h4>
     <div class="store-list-table">
