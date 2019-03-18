@@ -7,7 +7,7 @@
       text-color="#223a70"
     >
       <el-menu-item>
-        <img class="header-icon" alt="logo" src="../assets/mkp.png">
+        <img class="header-icon" alt="logo" src="../assets/mkp.png" />
         <span class="header-text">mini Hackathon</span>
       </el-menu-item>
       <el-menu-item index="top" :route="{ name: 'top' }">
