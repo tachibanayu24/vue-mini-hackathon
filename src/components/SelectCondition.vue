@@ -71,7 +71,7 @@ export default {
       price: [
         { label: "~500円", value: 1 },
         { label: "501~1000円", value: 2 },
-        { label: "1000円~", value: 3 }
+        { label: "1001円~", value: 3 }
       ],
       distance: [
         { label: "~5分", value: 1 },
