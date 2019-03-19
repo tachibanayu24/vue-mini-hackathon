@@ -2,6 +2,7 @@
   <!-- eslint-disable -->
   <div class="mkp-app">
     <div class="wrapper">
+      <h1 class="title">Ohi-Roulette</h1>
       <div class="logo-anime">
         <div id="container">
           <div class="floated text-make">Make</div>
@@ -20,7 +21,7 @@
         </div>
       </div>
     </div>
-    <hr />
+    <hr>
 
     <Otenki/>
     <SelectCondition :selectCondition="selectCondition" ref="SelectCondition"/>
@@ -75,6 +76,7 @@ export default {
 <style scoped>
 /* eslint-disable */
 @import url(https://fonts.googleapis.com/css?family=Roboto:700);
+@import url(https://fonts.googleapis.com/css?family=Baloo+Chettan|Open+Sans|Roboto+Slab);
 
 .wrapper {
   display: flex;
@@ -91,6 +93,10 @@ export default {
 
 .floated {
   float: left;
+}
+
+.title {
+  font-family: "Baloo Chettan", cursive;
 }
 
 .text-make {
