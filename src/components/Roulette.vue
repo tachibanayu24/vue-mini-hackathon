@@ -12,39 +12,6 @@ export default {
   data() {
     return {
       selectedStore: "今日のランチはこちら",
-
-      // storeList: [{
-      //   name: null,
-      //   price: null,
-      //   distance: null,
-      //   category: null
-      // }]
-      // storeList: [
-      //   {
-      //     name: "A",
-      //     price: 100,
-      //     distance: 5,
-      //     category: "中華"
-      //   },
-      //   {
-      //     name: "B",
-      //     price: 100,
-      //     distance: 5,
-      //     category: "中華"
-      //   },
-      //   {
-      //     name: "だめなお店",
-      //     price: 600,
-      //     distance: 5,
-      //     category: "中華"
-      //   }
-      // ],
-
-      // selectedCondition: {
-      //   price: 500,
-      //   distance: 5,
-      //   category: "中華"
-      // }
     };
   },
 
@@ -55,19 +22,19 @@ export default {
         var tfFlug = true;
         if (selectConditionType !== "ランダム") {
           if (
-            selectCondition.price !== null &&
-            shopList[i].price > selectCondition.price
+            selectCondition.price !== "" &&
+            shopList[i].price !== selectCondition.price
           ) {
             tfFlug = false;
           }
           if (
-            selectCondition.distance !== null &&
-            shopList[i].distance > selectCondition.distance
+            selectCondition.distance !== "" &&
+            shopList[i].distance !== selectCondition.distance
           ) {
             tfFlug = false;
           }
           if (
-            selectCondition.category !== null &&
+            selectCondition.category !== "" &&
             shopList[i].category !== selectCondition.category
           ) {
             tfFlug = false;

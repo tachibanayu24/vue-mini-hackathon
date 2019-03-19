@@ -17,7 +17,7 @@
             <el-radio-group v-model="selectCondition.price">
               <el-radio-button
                 v-for="(price, idx) in price"
-                :label="price.value"
+                :label="price.label"
                 :key="price.value"
                 :id="`price-id-${idx}`"
               >{{ price.label }}</el-radio-button>
@@ -33,7 +33,7 @@
             <el-radio-group v-model="selectCondition.distance">
               <el-radio-button
                 v-for="(distance, idx) in distance"
-                :label="distance.value"
+                :label="distance.label"
                 :key="distance.value"
                 :id="`distance-id-${idx}`"
               >{{ distance.label }}</el-radio-button>
@@ -49,7 +49,7 @@
             <el-radio-group v-model="selectCondition.category">
               <el-radio-button
                 v-for="(category, idx) in category"
-                :label="category.value"
+                :label="category.label"
                 :key="category.value"
                 :id="`category-id-${idx}`"
               >{{ category.label }}</el-radio-button>
