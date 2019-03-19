@@ -1,9 +1,6 @@
 <template>
 <!-- eslint-disable -->
   <div class="mkp-app">
-
-    <h1>ここにルーレット作るで</h1>
-
     <el-form>
       <h2>{{selectedStore}}</h2>
     </el-form>
@@ -56,7 +53,7 @@ export default {
       var kouhoStoreList = [];
       for (var i = 0; i < shopList.length; i++) {
         var tfFlug = true;
-        if(selectConditionType !== "ランダム") {
+        if (selectConditionType !== "ランダム") {
           if (
             selectCondition.price !== null &&
             shopList[i].price > selectCondition.price

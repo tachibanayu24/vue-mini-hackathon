@@ -23,7 +23,7 @@
     <hr />
 
     <Otenki/>
-    <SelectCondition :selectCondition="SelectCondition" ref="SelectCondition"/>
+    <SelectCondition :selectCondition="selectCondition" ref="SelectCondition"/>
     <Roulette :roulette="Roulette" ref="Roulette"/>
     <el-button @click="startRoulette">ぼたん(仮)</el-button>
     <StoreList :storeList="StoreList" ref="StoreList"/>
