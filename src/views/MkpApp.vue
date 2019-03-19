@@ -23,10 +23,10 @@
     <hr />
 
     <Otenki/>
-    <SelectCondition :selectCondition="selectCondition" ref="selectCondition"/>
-    <Roulette/>
+    <SelectCondition :selectCondition="SelectCondition" ref="SelectCondition"/>
+    <Roulette :roulette="Roulette" ref="Roulette"/>
     <el-button @click="startRoulette">ぼたん(仮)</el-button>
-    <StoreList/>
+    <StoreList :storeList="StoreList" ref="StoreList"/>
     <Footer/>
   </div>
 </template>

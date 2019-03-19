@@ -1,4 +1,5 @@
 <template>
+<!-- eslint-disable -->
   <div class="mkp-app">
 
     <h1>ここにルーレット作るで</h1>
@@ -50,42 +51,42 @@ export default {
     };
   },
 
-  // methods: {
-  //   async selectStore(selectConditionType, selectCondition, storelist) {
-  //     var kouhoStoreList = [];
-  //     for (var i = 0; i < storeList.length; i++) {
-  //       var tfFlug = true;
-  //       if(selectConditionType !== "ランダム") {
-  //         if (
-  //           selectCondition.price !== null &&
-  //           storeList[i].price > selectCondition.price
-  //         ) {
-  //           tfFlug = false;
-  //         }
-  //         if (
-  //           selectCondition.distance !== null &&
-  //           storeList[i].distance > selectCondition.distance
-  //         ) {
-  //           tfFlug = false;
-  //         }
-  //         if (
-  //           selectCondition.category !== null &&
-  //           storeList[i].category !== selectCondition.category
-  //         ) {
-  //           tfFlug = false;
-  //         }
-  //       }
-  //       if (tfFlug === true) {
-  //         kouhoStoreList.push(storeList[i]);
-  //       }
-  //     }
-  //     if (kouhoStoreList.length === 0) {
-  //       this.selectedStore = "該当する店無いよ";
-  //     } else {
-  //       var randnum = Math.floor(Math.random() * kouhoStoreList.length);
-  //       this.selectedStore = kouhoStoreList[randnum].name;
-  //     }
-  //   }
-  // }
+  methods: {
+    async selectStore(selectConditionType, selectCondition, shopList) {
+      var kouhoStoreList = [];
+      for (var i = 0; i < shopList.length; i++) {
+        var tfFlug = true;
+        if(selectConditionType !== "ランダム") {
+          if (
+            selectCondition.price !== null &&
+            shopList[i].price > selectCondition.price
+          ) {
+            tfFlug = false;
+          }
+          if (
+            selectCondition.distance !== null &&
+            shopList[i].distance > selectCondition.distance
+          ) {
+            tfFlug = false;
+          }
+          if (
+            selectCondition.category !== null &&
+            shopList[i].category !== selectCondition.category
+          ) {
+            tfFlug = false;
+          }
+        }
+        if (tfFlug === true) {
+          kouhoStoreList.push(shopList[i]);
+        }
+      }
+      if (kouhoStoreList.length === 0) {
+        this.selectedStore = "該当する店無いよ";
+      } else {
+        var randnum = Math.floor(Math.random() * kouhoStoreList.length);
+        this.selectedStore = kouhoStoreList[randnum].name;
+      }
+    }
+  }
 };
 </script>
